@@ -230,6 +230,23 @@ def run_customer_doc_chain(param):
 
     return ai_msg["answer"]
 
+def run_all_data_doc_chain(param):
+    """
+    dataフォルダ内のすべてのデータを対象に検索を行うTool設定用の関数
+
+    Args:
+        param: ユーザー入力値
+
+    Returns:
+        LLMからの回答
+    """
+    # dataフォルダ内のすべてのデータを対象にしたChainを実行してLLMからの回答を取得
+    ai_msg = st.session_state.rag_chain.invoke({"input": param, "chat_history": st.session_state.chat_history})
+    # 会話履歴への追加
+    st.session_state.chat_history.extend([HumanMessage(content=param), AIMessage(content=ai_msg["answer"])])
+
+    return ai_msg["answer"]
+
 
 def delete_old_conversation_log(result):
     """

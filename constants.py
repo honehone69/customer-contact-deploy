@@ -117,7 +117,9 @@ SEARCH_CUSTOMER_COMMUNICATION_INFO_TOOL_NAME = "search_customer_communication_to
 SEARCH_CUSTOMER_COMMUNICATION_INFO_TOOL_DESCRIPTION = "顧客とのやりとりに関する情報を参照したい時に使う"
 SEARCH_WEB_INFO_TOOL_NAME = "search_web_tool"
 SEARCH_WEB_INFO_TOOL_DESCRIPTION = "自社サービス「HealthX」に関する質問で、Web検索が必要と判断した場合に使う"
-
+# dataフォルダ全体を検索するToolの名前と説明
+SEARCH_ALL_DATA_TOOL_NAME = "search_all_data_tool"
+SEARCH_ALL_DATA_TOOL_DESCRIPTION = "dataフォルダ内のすべてのデータを対象に検索を行うツールです。"
 
 # ==========================================
 # Slack連携関連

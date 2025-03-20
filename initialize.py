@@ -148,7 +148,13 @@ def initialize_agent_executor():
             name = ct.SEARCH_WEB_INFO_TOOL_NAME,
             func=search.run,
             description=ct.SEARCH_WEB_INFO_TOOL_DESCRIPTION
-        )
+        ),
+        Tool(
+            name=ct.SEARCH_ALL_DATA_TOOL_NAME,
+            func=utils.run_all_data_doc_chain,
+            description=ct.SEARCH_ALL_DATA_TOOL_DESCRIPTION
+),
+        
     ]
 
     # Agent Executorの作成
