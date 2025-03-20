@@ -129,32 +129,55 @@ def initialize_agent_executor():
         Tool(
             name=ct.SEARCH_COMPANY_INFO_TOOL_NAME,
             func=utils.run_company_doc_chain,
-            description=ct.SEARCH_COMPANY_INFO_TOOL_DESCRIPTION
+            description=(
+                "会社に関する情報を検索します。このToolは、"
+                "会社の概要、歴史、所在地、連絡先情報などを取得するために使用します。"
+                "入力には具体的な会社名を含めてください。"
+            )
         ),
         # サービスに関するデータ検索用のTool
         Tool(
             name=ct.SEARCH_SERVICE_INFO_TOOL_NAME,
             func=utils.run_service_doc_chain,
-            description=ct.SEARCH_SERVICE_INFO_TOOL_DESCRIPTION
+            description=(
+                "サービスに関する情報を検索します。このToolは、"
+                "提供されているサービスの詳細、料金、利用条件などを取得するために使用します。"
+                "入力にはサービス名またはカテゴリを含めてください。"
+            )
         ),
         # 顧客とのやり取りに関するデータ検索用のTool
         Tool(
             name=ct.SEARCH_CUSTOMER_COMMUNICATION_INFO_TOOL_NAME,
             func=utils.run_customer_doc_chain,
-            description=ct.SEARCH_CUSTOMER_COMMUNICATION_INFO_TOOL_DESCRIPTION
+            description=(
+                "顧客とのやり取りに関する情報を検索します。このToolは、"
+                "過去の問い合わせ履歴、対応状況、顧客満足度などを取得するために使用します。"
+                "入力には顧客名または問い合わせIDを含めてください。"
+            )
         ),
         # Web検索用のTool
         Tool(
-            name = ct.SEARCH_WEB_INFO_TOOL_NAME,
+            name=ct.SEARCH_WEB_INFO_TOOL_NAME,
             func=search.run,
-            description=ct.SEARCH_WEB_INFO_TOOL_DESCRIPTION
+            description=(
+                "インターネット上の情報を検索します。このToolは、"
+                "一般的な質問や外部情報を取得するために使用します。"
+                "入力には具体的な検索クエリを含めてください。"
+            )
         ),
+        # 全データを横断的に検索するTool
         Tool(
             name=ct.SEARCH_ALL_DATA_TOOL_NAME,
             func=utils.run_all_data_doc_chain,
-            description=ct.SEARCH_ALL_DATA_TOOL_DESCRIPTION
-),
-        
+            description=(
+                "すべてのデータベースを横断的に検索します。このToolは、"
+                "会社、サービス、顧客情報を含む複数のデータソースから情報を取得するために使用します。"
+                "特定のカテゴリに限定されない質問や、複数のカテゴリにまたがる質問に適しています。"
+                "例えば、『EcoTeeに関するすべての情報を教えてください』や、"
+                "『顧客とサービスに関する関連情報をまとめて教えてください』といった質問に対応します。"
+                "入力には具体的なキーワードを含めてください。"
+            )
+        ),
     ]
 
     # Agent Executorの作成
